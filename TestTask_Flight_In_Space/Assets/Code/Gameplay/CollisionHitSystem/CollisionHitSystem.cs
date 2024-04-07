@@ -12,7 +12,7 @@ namespace Code.Gameplay
     {
         public event Action OnHitAmountChange;
         
-        public int CurrentHitAmount { get; set; }
+        public int CurrentHitAmount { get; private set; }
         
         private readonly IGameFactory _gameFactory;
         private readonly PlayerDataProvider _playerDataProvider;

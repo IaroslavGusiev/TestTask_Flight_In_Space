@@ -11,9 +11,6 @@ namespace Code.Gameplay
         private CollisionHitSystem _collisionHitSystem;
         private InputTurnWrapper _inputTurnWrapper;
 
-        public ShipPresenter(ShipModel model) => 
-            _model = model;
-
         [Inject]
         private void Construct(InputTurnWrapper inputTurnWrapper, CollisionHitSystem collisionHitSystem)
         {
@@ -21,7 +18,10 @@ namespace Code.Gameplay
             _inputTurnWrapper = inputTurnWrapper;
             _inputTurnWrapper.OnTurnAction += HandleTurnAction;
         }
-        
+
+        public ShipPresenter(ShipModel model) => 
+            _model = model;
+
         public void Cleanup() =>
             _inputTurnWrapper.OnTurnAction -= HandleTurnAction;
 

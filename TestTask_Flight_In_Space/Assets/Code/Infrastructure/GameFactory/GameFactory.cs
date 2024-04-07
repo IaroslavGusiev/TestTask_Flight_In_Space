@@ -14,16 +14,14 @@ namespace Code.Infrastructure
     {
         private readonly IAssetProvider _assetProvider;
         private readonly IObjectResolver _objectResolver;
-        private readonly InputTurnWrapper _inputTurnWrapper;
-        
+
         private readonly GameAssetConfig _assetConfig;
         private readonly GameSessionConfig _gameSessionConfig;
 
-        public GameFactory(IObjectResolver objectResolver, IAssetProvider assetProvider, IStaticDataService staticDataService, InputTurnWrapper inputTurnWrapper)
+        public GameFactory(IObjectResolver objectResolver, IAssetProvider assetProvider, IStaticDataService staticDataService)
         {
             _assetProvider = assetProvider;
             _objectResolver = objectResolver;
-            _inputTurnWrapper = inputTurnWrapper;
             _assetConfig = staticDataService.GetGameAssetConfig();
             _gameSessionConfig = staticDataService.GetGameSessionConfig();
         }
