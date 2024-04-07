@@ -41,6 +41,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - GameAssets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0898b572f28fb32439fbe4be9a9beb52
+    m_Address: Boom_VFX
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameAssets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d0fecd96c57b7b4da8520ddeda3bfc3
+    m_Address: GameSessionConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 650a7f1749aa2384084f88e874d896c7, type: 2}
   m_SchemaSet:

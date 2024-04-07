@@ -2,6 +2,7 @@ using VContainer;
 using UnityEngine;
 using VContainer.Unity;
 using Code.Infrastructure;
+using Services.ScreenServiceSpace;
 using Code.Services.InputServiceSpace;
 using Code.Infrastructure.StateMachineBase;
 
@@ -17,9 +18,11 @@ namespace Code.Gameplay
             RegisterInputService(builder);
             RegisterInputWrapper(builder);
             RegisterStateFactory(builder);
+            RegisterScreenService(builder);
             RegisterViewportBounds(builder);
             RegisterHittableSpawner(builder);
             RegisterGameStateMachine(builder);
+            RegisterCollisionHitSystem(builder);
         }
 
         private void RegisterGameFactory(IContainerBuilder builder)
@@ -59,6 +62,17 @@ namespace Code.Gameplay
                 .AsSelf();
         }
         
+        private static void RegisterScreenService(IContainerBuilder builder)
+        {
+            builder
+                .Register<ScreenService>(Lifetime.Scoped)
+                .As<IScreenService>();
+
+            builder
+                .RegisterComponentInHierarchy<ChildScreensProvider>()
+                .As<IScreensProvider>();
+        }
+
         private void RegisterViewportBounds(IContainerBuilder builder)
         {
             builder
@@ -73,10 +87,18 @@ namespace Code.Gameplay
                 .AsSelf();
         }
 
-        private static void RegisterHittableSpawner(IContainerBuilder builder)
+        private void RegisterHittableSpawner(IContainerBuilder builder)
         {
             builder
                 .RegisterEntryPoint<HittableSpawner>(Lifetime.Scoped)
+                .AsSelf();
+        }
+
+        private void RegisterCollisionHitSystem(IContainerBuilder builder)
+        {
+            builder
+                .Register<CollisionHitSystem>(Lifetime.Scoped)
+                .As<ICollisionHitSystem, IAsyncStartable>()
                 .AsSelf();
         }
     }

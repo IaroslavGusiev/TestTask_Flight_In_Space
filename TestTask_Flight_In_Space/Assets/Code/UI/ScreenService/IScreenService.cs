@@ -2,7 +2,7 @@
 {
     public interface IScreenService
     {
-        void Init(IScreensProvider screensProvider);
+        void Init();
         void Show<TModel>() where TModel : BaseViewModel;
         void Show<TModel>(TModel model) where TModel : BaseViewModel;
         void Close<TModel>() where TModel : BaseViewModel;

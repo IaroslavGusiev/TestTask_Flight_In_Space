@@ -31,6 +31,9 @@ namespace Code.Gameplay
 
         private void HandleStartOfTouch()
         {
+            if (_inputService.IsPointerOverUIGameObject())
+                return;
+        
             Vector2 touchPosition = _inputService.GetTouchPosition();
             
             if (touchPosition.x < _screenWidthHalf)

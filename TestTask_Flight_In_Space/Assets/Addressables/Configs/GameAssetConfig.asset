@@ -15,3 +15,4 @@ MonoBehaviour:
   <SpaceShipPrefabAddress>k__BackingField: Ship
   <LevelPrefabAddress>k__BackingField: SpaceLevel
   <AsteroidPrefabAddress>k__BackingField: Asteroid
+  <HitVFXPrefabAddress>k__BackingField: Boom_VFX

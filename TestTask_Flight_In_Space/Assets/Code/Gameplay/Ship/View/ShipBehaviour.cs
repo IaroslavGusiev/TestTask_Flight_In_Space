@@ -22,8 +22,11 @@ namespace Code.Gameplay
         private void OnDisable() => 
             _triggerObserver.OnTriggerEnter -= HandleTriggerEnter;
 
-        private void OnDestroy() => 
+        private void OnDestroy()
+        {
             _flyModule.Cleanup();
+            _shipPresenter.Cleanup();
+        }
 
         public void SetPresenter(ShipPresenter shipPresenter) => 
             _shipPresenter = shipPresenter;

@@ -1,4 +1,3 @@
-using System;
 using Code.UI;
 using VContainer;
 using UnityEngine;
@@ -6,6 +5,7 @@ using Code.Services;
 using VContainer.Unity;
 using Code.Infrastructure;
 using Code.Services.StaticDataService;
+using Code.Infrastructure.AnalyticsSpace;
 using Code.Infrastructure.StateMachineBase;
 using Code.Infrastructure.AppStateMachineScope;
 
@@ -24,7 +24,8 @@ namespace CompositionRoot
             RegisterAssetProvider(builder);
             RegisterLoadingCurtain(builder);
             RegisterSaveLoadService(builder);
-            RegisterGameStateMachine(builder);
+            RegisterAppStateMachine(builder);
+            RegisterAnalyticsModule(builder);
             RegisterStaticDataService(builder);
             RegisterPlayerDataProvider(builder);
         }
@@ -64,12 +65,19 @@ namespace CompositionRoot
                 .As<ISaveLoadService>();
         }
 
-        private void RegisterGameStateMachine(IContainerBuilder builder)
+        private void RegisterAppStateMachine(IContainerBuilder builder)
         {
             builder
                 .Register<AppStateMachine>(Lifetime.Singleton)
                 .As<IAppStateMachine>()
                 .AsSelf();
+        }
+        
+        private void RegisterAnalyticsModule(IContainerBuilder builder)
+        {
+            builder
+                .Register<AnalyticsModule>(Lifetime.Singleton)
+                .As<IAnalyticsModule>();
         }
 
         private void RegisterStaticDataService(IContainerBuilder builder)

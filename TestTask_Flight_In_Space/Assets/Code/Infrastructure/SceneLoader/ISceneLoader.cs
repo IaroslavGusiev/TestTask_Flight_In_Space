@@ -6,6 +6,7 @@ namespace Code.Infrastructure
 {
     public interface ISceneLoader
     {
+        string GetNameOfCurrentScene();
         UniTask LoadAsync(SceneName scene, Action onLoaded = null);
     }
 }

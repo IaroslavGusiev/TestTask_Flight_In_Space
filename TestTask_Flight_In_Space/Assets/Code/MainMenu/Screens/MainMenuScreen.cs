@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Code.Extensions;
 using Services.ScreenServiceSpace;
 
 namespace Code.MainMenu
@@ -11,8 +12,8 @@ namespace Code.MainMenu
         
         protected override void OnBind(MainScreenModel model)
         {
-            _playButton.onClick.AddListener(model.ShowPlayPopUp);
-            _quitButton.onClick.AddListener(model.ShowExitPopUp);
+            _playButton.Add(model.ShowPlayPopUp);
+            _quitButton.Add(model.ShowExitPopUp);
         }
     }
 }

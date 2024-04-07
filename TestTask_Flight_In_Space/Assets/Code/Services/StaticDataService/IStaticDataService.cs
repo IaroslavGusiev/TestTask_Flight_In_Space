@@ -7,5 +7,6 @@ namespace Code.Services.StaticDataService
     {
         UniTask Initialize();
         GameAssetConfig GetGameAssetConfig();
+        GameSessionConfig GetGameSessionConfig();
     }
 }

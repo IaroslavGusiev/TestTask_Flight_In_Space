@@ -9,5 +9,6 @@ namespace Code.Infrastructure
         UniTask<LevelBehaviour> CreateBattlefieldBehaviour();
         UniTask<Asteroid> CreateAsteroid(Transform container);
         UniTask<ShipBehaviour> CreateShipBehaviour(Vector3 at);
+        UniTask<GameObject> CreateHitVFX();
     }
 }

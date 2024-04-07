@@ -8,5 +8,6 @@ namespace Code.StaticData
         [field: SerializeField] public string SpaceShipPrefabAddress { get; private set; }
         [field: SerializeField] public string LevelPrefabAddress { get; private set; }
         [field: SerializeField] public string AsteroidPrefabAddress { get; private set; }
+        [field: SerializeField] public string HitVFXPrefabAddress { get; private set; }
     }
 }

@@ -5,7 +5,7 @@ namespace Code.Services
     public class PlayerDataProvider
     {
         private const string DataKey = "PlayerDataKey";
-        public PlayerData Data { get; set; }
+        public PlayerData Data { get; private set; }
 
         private readonly ISaveLoadService _saveLoadService;
 

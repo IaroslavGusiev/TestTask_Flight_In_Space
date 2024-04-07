@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "301193862042",
+    "project_id": "testtaskflightinspace",
+    "storage_bucket": "testtaskflightinspace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301193862042:android:cdf22bf00f1e710bec3823",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TestTask_Flight_In_Space"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjlimnjgHgyjEbWsn4DlXX5SEBbAma_Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

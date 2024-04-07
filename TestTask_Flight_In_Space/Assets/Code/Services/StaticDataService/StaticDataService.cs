@@ -9,6 +9,7 @@ namespace Code.Services.StaticDataService
     {
         private readonly IAssetProvider _assetProvider;
         private List<GameAssetConfig> _gameAssetConfigs = new();
+        private List<GameSessionConfig> _gameSessionConfigs = new();
 
         public StaticDataService(IAssetProvider assetProvider) => 
             _assetProvider = assetProvider;
@@ -16,15 +17,25 @@ namespace Code.Services.StaticDataService
         public async UniTask Initialize()
         {
             await LoadGameAssetConfig();
+            await LoadGameSessionConfig();
         }
 
         public GameAssetConfig GetGameAssetConfig() => 
             _gameAssetConfigs.FirstOrDefault();
 
+        public GameSessionConfig GetGameSessionConfig() => 
+            _gameSessionConfigs.FirstOrDefault();
+
         private async UniTask LoadGameAssetConfig()
         { 
             GameAssetConfig[] configs = await GetConfigs<GameAssetConfig>();
             _gameAssetConfigs = configs.ToList();
+        }
+
+        private async UniTask LoadGameSessionConfig()
+        {
+            GameSessionConfig[] configs = await GetConfigs<GameSessionConfig>();
+            _gameSessionConfigs = configs.ToList();
         }
 
         private async UniTask<T[]> GetConfigs<T>() where T : class

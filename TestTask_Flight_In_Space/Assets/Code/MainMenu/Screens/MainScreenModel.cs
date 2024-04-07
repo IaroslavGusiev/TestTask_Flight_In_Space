@@ -24,7 +24,7 @@ namespace Code.MainMenu
             var positiveButtonBind = new PopUpButtonBind(YesTextString, EnterGameLoopState);
             var negativeButtonBind = new PopUpButtonBind(NoTextString, null);
 
-            ScreenService.Show(new PopUpModel("Start new game", new[] { positiveButtonBind, negativeButtonBind }));
+            ScreenService.Show(new PopUpModel("Start new game", new[] { positiveButtonBind, negativeButtonBind }, null));
         }
 
         public void ShowExitPopUp()
@@ -32,7 +32,7 @@ namespace Code.MainMenu
             var positiveButtonBind = new PopUpButtonBind(YesTextString, EnterCloseGameState);
             var negativeButtonBind = new PopUpButtonBind(NoTextString, null);
             
-            ScreenService.Show(new PopUpModel("Want to exit?", new[] { positiveButtonBind, negativeButtonBind }));
+            ScreenService.Show(new PopUpModel("Want to exit?", new[] { positiveButtonBind, negativeButtonBind }, null));
         }
 
         private void EnterGameLoopState() => 

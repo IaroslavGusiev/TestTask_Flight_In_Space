@@ -10,6 +10,9 @@ namespace Code.Infrastructure
         public UniTask LoadAsync(SceneName scene, Action onLoaded = null) =>
             LoadSceneAsync(scene.ToString(), onLoaded);
 
+        public string GetNameOfCurrentScene() => 
+            SceneManager.GetActiveScene().name;
+
         private async UniTask LoadSceneAsync(string nextScene, Action onLoaded = null)
         {
             if (SceneManager.GetActiveScene().name == nextScene)

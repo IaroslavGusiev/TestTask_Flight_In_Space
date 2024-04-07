@@ -7,14 +7,18 @@ namespace Services.ScreenServiceSpace
 {
     public class ScreenService : IScreenService
     {
-        private Dictionary<Type, BaseScreen> _screensMap;
-        
+        private readonly IScreensProvider _screensProvider;
+
         private readonly Dictionary<Type, (BaseScreen screen, IUiModel model)> _shownScreens = new Dictionary<Type, (BaseScreen, IUiModel model)>();
         private readonly Dictionary<Type, IUiModel> _persistentModels = new();
+        private Dictionary<Type, BaseScreen> _screensMap;
 
-        public void Init(IScreensProvider screensProvider)
+        public ScreenService(IScreensProvider screensProvider) => 
+            _screensProvider = screensProvider;
+
+        public void Init()
         {
-            List<BaseScreen> screens = screensProvider.GetScreens().ToList();
+            List<BaseScreen> screens = _screensProvider.GetScreens().ToList();
             
             foreach (BaseScreen screen in screens)
                 screen.gameObject.SetActive(false);

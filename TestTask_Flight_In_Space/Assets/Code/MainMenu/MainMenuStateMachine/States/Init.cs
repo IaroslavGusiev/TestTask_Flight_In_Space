@@ -9,26 +9,21 @@ namespace Code.MainMenu.States
     public class Init : IState
     {
         private readonly IScreenService _screenService;
-        private readonly IScreensProvider _screensProvider;
         private readonly AppStateMachine _appStateMachine;
 
-        public Init(IScreenService screenService, IScreensProvider screensProvider, AppStateMachine appStateMachine)
+        public Init(IScreenService screenService, AppStateMachine appStateMachine)
         {
             _screenService = screenService;
-            _screensProvider = screensProvider;
             _appStateMachine = appStateMachine;
         }
 
         public async UniTask Enter(CancellationToken cancellationToken)
         {
-            _screenService.Init(_screensProvider);
+            _screenService.Init();
             _screenService.BindModel(new MainScreenModel(_appStateMachine, cancellationToken));
             _screenService.Show<MainScreenModel>();
         }
 
-        public async UniTask Exit()
-        {
-            
-        }
+        public async UniTask Exit() { }
     }
 }
